@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+		<!-- 소분류에 따른 상세분류 정보 ** 항상 선언한다.
+		단독∙다가구주택/아파트/연립/다세대,상가/점포/사무실/오피스텔, 토지(농지 외), 농지에 따라 해당 비용내역서 도움말이 모두 다름!!! 해당값에 따라서 도움말 정보를 동적으로 가져온다
+		-->
+		<input type="hidden" id="category_detail_id" name="category_detail_id" value="1"/>
+		<div id="expense_calculate_per_code"><!-- 각 계산식에 반드시 아래의 div를 삽입해야 함 -->
+			<div id="bright">
+				<!--비용계산 start -->
+				<div class="brb1_1">
+					<div class="title1">비용계산하기 - (근)저당권설정(공장저당포함)</div>
+					<table class="table_right2" border="1">
+			  			<colgroup>
+							<col width="40%"/>
+						</colgroup>
+						<tr>
+				  			<th>채권최고액</th>
+				  			<td>
+				  				<div id="hangeul_1" style="position: absolute; visibility: hidden; z-index: 20; width: 320; font-size: 9pt; font-family: 돋움; color: navy; background: lightyellow; border: 1px solid black ;"></div>
+				  				<input type="text" id="txtbox1" name="expenseCalculation.txtbox1" onblur="offTooltip(hangeul_1);" value="" maxlength="25" style="width:150px;text-align:right;padding-right:1px;"/> 원
+				  			</td>
+						</tr>
+					</table>
+					<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+				  			<th>부동산의 수</th>
+				  			<td>
+
+
+				  					<input type="text" id="txtbox2" name="expenseCalculation.txtbox2" value="1" style="width:52px;"/>
+
+				  				<a onfocus="blur()" href="#" onclick="javascript:addItem_01();"><img src="/images_2011/popup/btn1.gif"/></a>
+				  				<a onfocus="blur()" href="#" onclick="javascript:delItem_01();"><img src="/images_2011/popup/btn2.gif"/></a>
+				  			</td>
+						</tr>
+			  		</table>
+
+			  		<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+							<th>등본의 수</th>
+							<td>
+
+
+								<input type="text" id="txtbox6" name="expenseCalculation.txtbox6" value="3" readonly style="width:52px;"/>
+
+								<a onfocus="blur()" href="#" onclick="javascript:addItem_6();"><img src="/images_2011/popup/btn1.gif"/></a>
+								<a onfocus="blur()" href="#" onclick="javascript:delItem_6();"><img src="/images_2011/popup/btn2.gif"/></a>
+							</td>
+						</tr>
+					</table>
+
+			  		<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+							</colgroup>
+						<tr>
+					  		<th>등록면허세감면</th>
+					  		<td>
+					  			<label>
+					  			<input class="checkbox" type="checkbox" id="chkbox1" name="expenseCalculation.chkbox1" >농업인의 융자(50%감면)(2020.12.31까지 한시적용)
+					  			</label>
+					  		</td>
+						</tr>
+				  	</table>
+
+				  	<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+			  				<th>등기명의인 변경이 있는 경우<br>(변경대상부동산수)</th>
+				  			<td>
+
+
+				  					<input type="text" id="txtbox4" name="expenseCalculation.txtbox4" value="0" readonly style="width:52px;"/>
+
+				  				<a onfocus="blur()" href="#" onclick="javascript:addItem_02();"><img src="/images_2011/popup/btn1.gif"/></a>
+				  				<a onfocus="blur()" href="#" onclick="javascript:delItem_02();"><img src="/images_2011/popup/btn2.gif"/></a>
+				  			</td>
+						</tr>
+			  		</table>
+
+				  	<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+				  			<th>채권매입사항</th>
+				  			<td>
+				  				<span id="span_chkbox6">
+					  				<label><input class="checkbox" type="checkbox" id="chkbox6" name="expenseCalculation.chkbox6" /> 채권면제대상인경우</label>
+					  			</span><br>
+				  				<label><input type="radio" id="rdobox3" name="expenseCalculation.rdobox3" value="1" checked="checked" />
+				  				할인</label>&nbsp;&nbsp;<span>할인율
+				  				<input type="text" id="txtbox3" name="expenseCalculation.txtbox3" value="2.4692" maxlength="10" style="width:50px; color:#3674c1;height:14px;text-align:right;padding-right:1px;"/> %</span><br/>
+				  				<label><input type="radio" id="rdobox3" name="expenseCalculation.rdobox3"  value="2"  /> 매입</label>
+				  				<br>비고
+
+
+				  					<input type="text" id="txtbox20" name="expenseCalculation.txtbox20" value="" maxlength="25" style="width:130px;"/>
+
+				  			</td>
+						</tr>
+			  		</table>
+
+			  		<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+							<th>제출형태</th>
+							<td>
+								<label><input type="radio" id="rdobox4" name="expenseCalculation.rdobox4" value="1" checked="checked" />서면</label>
+								<label><input type="radio" id="rdobox4" name="expenseCalculation.rdobox4" value="2"  />이폼</label>
+								<label><input type="radio" id="rdobox4" name="expenseCalculation.rdobox4" value="3"  />전자</label>
+							</td>
+						</tr>
+					</table>
+
+			  		<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+							<th>선택사항</th>
+							<td>
+								<label><input class="checkbox" type="checkbox" id="chkbox8" name="expenseCalculation.chkbox8" >확인서면</label>
+							</td>
+						</tr>
+					</table>
+
+					<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+							<th>대행료선택</th>
+							<td>
+								<label><input class="checkbox" type="checkbox" id="chkbox11" name="expenseCalculation.chkbox11" >허가승낙서류작성</label>
+								<br><label><input class="checkbox" type="checkbox" id="chkbox12" name="expenseCalculation.chkbox12" >기타업무대행</label>
+							</td>
+						</tr>
+					</table>
+
+					<table border="1" class="table_right2">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+							<th>가산보수선택</th>
+							<td>
+								<label><input class="checkbox" type="checkbox" id="chkbox9" name="expenseCalculation.chkbox9" >특별사건(100%)가산</label>
+								<br><label><input class="checkbox" type="checkbox" id="chkbox10" name="expenseCalculation.chkbox10" >다수관할(50%)가산</label>
+							</td>
+						</tr>
+					</table>
+
+					<!-- 2018년08월10일 누진료가 기본보수에 통합됨 -->
+				  	<table border="1" class="table_right2" style="display:none">
+						<colgroup>
+							<col width="50%"/>
+							<col width="80%"/>
+						</colgroup>
+						<tr>
+				  			<th>누진료 할인률<br><br>누진료 원단위 처리</th>
+				  			<td>
+
+
+				  					<input type="text" id="txtbox5" name="expenseCalculation.txtbox5" value="0" maxlength="10" style="width:52px;color:#3674c1;height:14px;text-align:right;padding-right:1px;"/>%
+
+				  				<br>
+				  				<label><input type="radio" id="rdobox5" name="expenseCalculation.rdobox5" value="1" checked="checked" />버림</label>
+								<label><input type="radio" id="rdobox5" name="expenseCalculation.rdobox5" value="2"  />올림</label>
+								<label><input type="radio" id="rdobox5" name="expenseCalculation.rdobox5" value="3"  />그대로</label>
+				  			</td>
+						</tr>
+			  		</table>
+			  		<div class="h5"></div>
+			  		<div>
+			  			<a onclick="javascript:window.open('/com/nssam/app/colaw/common/popup/popupPubricmoney.html','','width=610,height=523,scrollbars=no').focus();" onfocus="blur()" href="javascript:void(0);">
+							<img id="pubricmoney" name="pubricmoney" src="/images_2011/popup/btn_e1.gif" alt="개별공시지가|주택공시가격"/>
+						</a>
+						<a href="https://etax.seoul.go.kr/jsp/BldnStndAmtLstAction.view?gnb_id=0709&lnb_id=0709&gl_gubun=l" target="_blank">
+							<img id="etax" name="etax" src="/images_2011/popup/btn_e2.gif" style="cursor:pointer;" alt="서울시주택외건물시가표준액"/>
+						</a>
+			  		</div>
+				  	<div class="upt2">
+			  			*현재[2019-09-11] 할인율은 <span><a href="javascript:currentBondDiscountRate('2.4692');" title="현재 할인율 반영"><font color="red">2.4692</a>%</font> 입니다.</span>
+			  		</div>
+			  		<div class="upt2"></div>
+			  		<div class="h5"></div>
+						<a href="#" onclick="javascript:calculateDetailView();"><img src="/images_2011/popup/btn_view14.gif" alt="매입금액결과다시보기"/></a>
+			  		<div class="btn_right"><a href="javascript:void(0);"><img id="btnCalculate" name="btnCalculate" style="cursor:pointer;" src="/images_2011/popup/btn_sum1.gif"/></a></div>
+				</div>
+			<!--//비용계산 end -->
+			</div>
+		</div>
+	</body>
+</html>
