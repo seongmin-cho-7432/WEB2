@@ -13,54 +13,94 @@
   <body>
       <tr>
         <th> <span style="font-size:9pt">채권최고액</th>
-        <td>	<input type="text" id="txtbox1" name="expenseCalculation.txtbox1" onblur="offTooltip(hangeul_1);" value="" maxlength="25" style="width:200px;text-align:right;padding-right:1px;"/> 원</td>
+        <td>	<input type="text" value="" maxlength="25" style="width:200px;text-align:right;padding-right:1px;"/> 원</td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">부동산의 수</th>
-        <td><input type="text" id="txtbox2" name="expenseCalculation.txtbox2" value="1" style="width:52px;"/></td>
+        <td><input type="text" value="1" style="width:52px;"/></td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">등기명의인표시변경이 있는 경우<br>
         (변경대상부동산수)</th>
-        <td><input type="text" id="txtbox3" name="expenseCalculation.txtbox3" value="1" style="width:52px;"/></td>
+        <td><input type="text" value="1" style="width:52px;"/></td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">등록면허세감면</th>
         <td>
-          <label>
-            <input class="checkbox" type="checkbox" id="chkbox1" name="expenseCalculation.chkbox1" >농업인의 융자(50%감면)
-          </label>
+          <label><input type="checkbox" id="chkbox1" />농업인의 융자(50%감면)</label>
         </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">채권매입사항</th>
         <td>
           <label>
-            <input class="checkbox" type="checkbox" id="chkbox6" name="expenseCalculation.chkbox6" /> 채권면제대상인경우
+            <input type="checkbox" id="chkbox6" /> 채권면제대상인경우
           </label>
+          </span><br>
+        <label><input type="radio" name="rdobox1" value="1" checked="checked" />할인</label>&nbsp;&nbsp;
+         <span>할인율
+          <input type="text" value="0" maxlength="10" style="width:50px; height:14px; text-align:right; padding-right:1px;"/> %
+        </span><br/>
+          <label><input type="radio" name="rdobox1" value="2"  /> 매입</label>
+        <br>비고
+          <input type="text" value="" maxlength="25" style="width:135px;"/>
         </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">선택</th>
-        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <label><input type="checkbox" id="chkbox8" >확인서면 작성</label>
+        </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">제출형태</th>
-        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <label><input type="radio" id="rdobox4" name="rdobox4" value="1"  />서면</label>
+          <label><input type="radio" id="rdobox4" name="rdobox4" value="2" checked="checked" />이폼</label>
+          <label><input type="radio" id="rdobox4" name="rdobox4" value="3"  />전자</label>
+        </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">기본보수협약적용</th>
-        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <select id="txtbox6" style="width:185px;background-color:#ffffff; height: 20px; font-size:11px; ">
+									<option value="1" >기본보수 75%</option>
+									<option value="2" selected="selected">기본보수 70%</option>
+									<option value="3" >기본보수 50%</option>
+					</select>
+        </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">등기사항증명서발급</th>
-        <td>&nbsp;&nbsp;&nbsp;<br>
-        &nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <label><input type="text" id="txtbox5" value="1" style="width:52px;" />건 </label><br>
+          <span id="span_chkbox1">
+           <label> <input type="checkbox" >50% 적용 </label><br>
+           </span>
+           <span id="span_chkbox2">
+            <label><input type="checkbox" >초과1통당 1,000원 가산 </lable>
+           </span>
+        </td>
       </tr>
       <tr>
         <th> <span style="font-size:9pt">교통비</th>
-        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <select id="txtbox6" style="width:185px;background-color:#ffffff; height: 20px; font-size:11px; ">
+									<option value="1" >해당없음</option>
+									<option value="2" selected="selected">15,000원(시내기본)</option>
+									<option value="3" >20,000원(시외50km이내1)</option>
+                  <option value="4" >20,000원(시외50km이내2)</option>
+                  <option value="5" >25,000원(시외50km초과)</option>
+                  <option value="6" >33,000원(시외50km이내)</option>
+                  <option value="7" >35,000원(시외100km이내)</option>
+                  <option value="8" >45,000원(시외200km이내)</option>
+                  <option value="9" >50,000원(시외50km초과통합)</option>
+					</select>
+        </td>
       </tr>
-    </table>
+    </table> <br>
+      <form align="left">
+      <input type="submit" value="계산하기" onclick="alert('계산하기')">
+      </form>
   </body>
 </html>
